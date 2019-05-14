@@ -33,43 +33,34 @@ elem2 = driver.find_element_by_xpath("""//*[@id="playlist"]/div/div[1]/div/div[2
 po1 = driver.find_element_by_class_name("song").text
 os.system("clear")
 while True:
-    next = input("\n\n1-Next music type(n) \n\n2-exit Type(e) \n\n3-Stop Type(s) \n\n4-Repeat Type(r)  \n\n5-max_window Type(maz)  \n\n6-min_window  Type(min)   \n\n7-Downlaod Type(d) \n\n8-Back muisc Type(b) \n\n\nPlease Type:  ")
+    next = input("\n\n1-Next music type(n) \n\n2-exit Type(e) \n\n3-Stop Type(s) \n\n4-Repeat Type(r)  \n\n5-max_window Type(maz)  \n\n6-min_window  Type(min)   \n\n7-Downlaod Type(d) \n\n8-Back muisc Type(b) \n\n\n9-Muisc-Bio Type(bio) \n\n\nPlease Type:  ")
     po1 = driver.find_element_by_class_name("song").text
     po1 = driver.find_element_by_class_name("song").text
-    tx = driver.find_element_by_class_name("mp3Description").text
+    if next == "bio":
+        os.system("clear")
+        tx = driver.find_element_by_class_name("mp3Description").text
+        print("==========>Bio muisc<=============\n",tx)
     if next == "n":
         driver.find_element_by_xpath("""//*[@id="mp3_next"]""").click()
         os.system("clear")
-        tx = driver.find_element_by_class_name("mp3Description").text
-        print("==========>Bio muisc<=============\n",tx,)
     if next == "e":
         print("goodbye👋")
         break
     if next == "s":
         driver.find_element_by_xpath("""//*[@id="mp3_play"]""").click()
         os.system("clear")
-        tx = driver.find_element_by_class_name("mp3Description").text
-        print("==========>Bio muisc<=============\n",tx,)
     if next == "r":
         driver.find_element_by_xpath("""//*[@id="mp3_repeat"]""").click()
         os.system("clear")
-        tx = driver.find_element_by_class_name("mp3Description").text
-        print("==========>Bio muisc<=============\n",tx,)
     if next == "max":
         driver.maximize_window()
         os.system("clear")
-        tx = driver.find_element_by_class_name("mp3Description").text
-        print("==========>Bio muisc<=============\n",tx,)
     if next == "min":
         driver.minimize_window()
         os.system("clear")
-        tx = driver.find_element_by_class_name("mp3Description").text
-        print("==========>Bio muisc<=============\n",tx,)
     if next == "b":
         driver.find_element_by_xpath("""//*[@id="mp3_back"]""").click()
         os.system("clear")
-        tx = driver.find_element_by_class_name("mp3Description").text
-        print("========>Bio muisc<========\n",">>>",tx)
     if next == "d":
         po = driver.find_element_by_class_name("artist").text
         link_rj="https://host2.rj-mw1.com/media/mp3/mp3-256/"
@@ -102,6 +93,4 @@ while True:
         os.system("notify-send Downlaod-done✅")
         os.system("mv *.mp3 radiojavan_music")
         os.system("clear")
-        tx = driver.find_element_by_class_name("mp3Description").text
-        print("==========>Bio muisc<=============\n",tx,)
 driver.close()
