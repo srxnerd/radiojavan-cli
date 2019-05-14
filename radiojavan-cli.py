@@ -37,8 +37,8 @@ while True:
     po1 = driver.find_element_by_class_name("song").text
     po1 = driver.find_element_by_class_name("song").text
     if next == "bio":
-        os.system("clear")
         tx = driver.find_element_by_class_name("mp3Description").text
+        os.system("clear")
         print("==========>Bio muisc<=============\n",tx)
     if next == "n":
         driver.find_element_by_xpath("""//*[@id="mp3_next"]""").click()
