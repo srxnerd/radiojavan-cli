@@ -51,7 +51,6 @@ while True:
         driver.find_element_by_xpath("""//*[@id="mp3"]/div/div[3]/div[1]/div/div[3]/div[2]/div[2]/i[1]""")
     if next == "d":
         po = driver.find_element_by_class_name("artist").text
-        print(po)
         link_rj="https://host2.rj-mw1.com/media/mp3/mp3-256/"
         ar = po
         ar = ar.replace(',', '')
