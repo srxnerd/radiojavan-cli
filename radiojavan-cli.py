@@ -32,7 +32,7 @@ actions.click(elem).perform()
 elem2 = driver.find_element_by_xpath("""//*[@id="playlist"]/div/div[1]/div/div[2]/a[2]""").click()
 po1 = driver.find_element_by_class_name("song").text
 while True:
-    next = input("\n\n1-Next music type(n) \n\n2-exit Type(e) \n\n3-Stop Type(s) \n\n4-Repeat Type(r)  \n\n5-max_window Type(maz)  \n\n6-min_window  Type(min)   \n\n7-Downlaod Type(d) \n\n\nPlease Type:  ")
+    next = input("\n\n1-Next music type(n) \n\n2-exit Type(e) \n\n3-Stop Type(s) \n\n4-Repeat Type(r)  \n\n5-max_window Type(maz)  \n\n6-min_window  Type(min)   \n\n7-Downlaod Type(d) \n\n8-Back muisc Type(b) \n\n\nPlease Type:  ")
     po1 = driver.find_element_by_class_name("song").text
     po1 = driver.find_element_by_class_name("song").text
     if next == "n":
@@ -47,8 +47,8 @@ while True:
         driver.maximize_window()
     if next == "min":
         driver.minimize_window()
-    if next == "plus":
-        driver.find_element_by_xpath("""//*[@id="mp3"]/div/div[3]/div[1]/div/div[3]/div[2]/div[2]/i[1]""")
+    if next == "b":
+        driver.find_element_by_xpath("""//*[@id="mp3_back"]""").click()
     if next == "d":
         po = driver.find_element_by_class_name("artist").text
         link_rj="https://host2.rj-mw1.com/media/mp3/mp3-256/"
