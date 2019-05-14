@@ -10,7 +10,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 print("        --------------------------------------------------")
 print("        |                                               ||")
 print("        |              🎷radiojavan-cli                 ||")
-print("        |                 version : 1.0                 ||")
+print("        |                 version : 1.1                 ||")
 print("        |                                               ||")
 print("        |             📨telegram:@py_gnu                ||")
 print("        |                                               ||")
@@ -33,7 +33,7 @@ elem2 = driver.find_element_by_xpath("""//*[@id="playlist"]/div/div[1]/div/div[2
 po1 = driver.find_element_by_class_name("song").text
 os.system("clear")
 while True:
-    next = input("\n\n1-Next music type(n) \n\n2-exit Type(e) \n\n3-Stop Type(s) \n\n4-Repeat Type(r)  \n\n5-max_window Type(max)  \n\n6-min_window  Type(min)   \n\n7-Downlaod Type(d) \n\n8-Back muisc Type(b) \n\n9-Muisc-Bio Type(bio) \n\n\nPlease Type:  ")
+    next = input("\n\n                       ======>>>radiojavan-cli<<<=====\n\n1-Next music type(n) \n\n2-exit Type(e) \n\n3-Stop Type(s) \n\n4-Repeat Type(r)  \n\n5-max_window Type(max)  \n\n6-min_window  Type(min)   \n\n7-Downlaod Type(d) \n\n8-Back muisc Type(b) \n\n9-Muisc-Bio Type(bio) \n\n\nPlease Type:  ")
     po1 = driver.find_element_by_class_name("song").text
     po1 = driver.find_element_by_class_name("song").text
     if next == "bio":
