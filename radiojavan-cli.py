@@ -36,6 +36,7 @@ while True:
     next = input("\n\n1-Next music type(n) \n\n2-exit Type(e) \n\n3-Stop Type(s) \n\n4-Repeat Type(r)  \n\n5-max_window Type(maz)  \n\n6-min_window  Type(min)   \n\n7-Downlaod Type(d) \n\n8-Back muisc Type(b) \n\n\nPlease Type:  ")
     po1 = driver.find_element_by_class_name("song").text
     po1 = driver.find_element_by_class_name("song").text
+    tx = driver.find_element_by_class_name("mp3Description").text
     if next == "n":
         driver.find_element_by_xpath("""//*[@id="mp3_next"]""").click()
         os.system("clear")
