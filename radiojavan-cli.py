@@ -78,6 +78,6 @@ while True:
         print(ok)
         os.system("mkdir radiojavan_music")
         os.system("wget "+ok)
-        os.system("notify-send Downlaod") 
+        os.system("notify-send Downlaod-done✅") 
         os.system("mv *.mp3 radiojavan_music")
 driver.close()
