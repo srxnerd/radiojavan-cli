@@ -9,10 +9,13 @@ from colored import fore, back, style
 import sys
 import wget
 import selenium.webdriver.opera
+import pyfiglet
 from selenium.webdriver.common.action_chains import ActionChains
-print(fore.LIGHT_BLUE + back.BLACK+"                 |-             🎷radiojavan-cli                 -|"+style.RESET)
+ascii_banner = pyfiglet.figlet_format("                           Radiojavan-cli",font='digital')
+print(ascii_banner)
+print(fore.LIGHT_BLUE + back.BLACK+"                 |--------------------gun--linux------------------|"+style.RESET)
 print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
-print(fore.LIGHT_BLUE + back.BLACK+"                 |-                version : 1.1                 -|"+style.RESET)
+print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
 print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
 print(fore.LIGHT_BLUE + back.BLACK+"                 *------------------------------------------------*"+style.RESET)
 print(fore.LIGHT_BLUE + back.BLACK+"                 |-              Nerd In the Life                -|"+style.RESET)
@@ -25,7 +28,6 @@ print("\n\nPlease wait a few moment...")
 link = "https://www.radiojavan.com/playlists/playlist/mp3/854b87855624"
 driver =webdriver.Chrome("/home/sti/down_git/chromedriver")
 driver.get(link)
-driver.minimize_window()
 time.sleep(2)
 playlist = []
 #]driver.find_element_by_xpath("//input[@name='username']").send_keys(userName)
@@ -50,7 +52,7 @@ os.system("clear")
 try:
     while True:
         os.system("clear")
-        next = input("\n\n                       ======>>>radiojavan-cli<<<=====\n1-Next music type(n) \n2-exit Type(e) \n3-Stop Type(s) \n4-Repeat Type(r)  \n5-max_window Type(max)  \n6-min_window  Type(min)   \n7-Downlaod Type(d) \n8-Retry trying to download Type(trydl) \n9-Back muisc Type(b) \n9-Muisc-Bio Type(bio) \n11-list Artis Type(artist)  \n12-New muisc  Type(new)\n                                                   \n\nPlease Type:  ")
+        next = input("\n\n                       ======>>>radiojavan-cli<<<=====\n1-)Next music Type(n) \n2-)Back muisc Type(b)  \n3-)Stop Type(s) \n4-)Repeat Type(r)  \n5-)max_window Type(max)  \n6-)min_window  Type(min)   \n6-)Downlaod Type(d) \n7-)Retry trying to download Type(trydl) \n8-)exit Type(e)\n9-)Muisc-Bio Type(bio) \n11-)list Artis Type(artist)  \n12-)New muisc  Type(new)\n  \n\n>>> Please Type: ")
         po1 = driver.find_element_by_class_name("song").text
         po1 = driver.find_element_by_class_name("song").text
         if next == "clear":
@@ -63,7 +65,8 @@ try:
             driver.find_element_by_xpath("""//*[@id="mp3_next"]""").click()
             os.system("clear")
         if next == "e":
-            print("goodbye👋")
+            ascii_banners = pyfiglet.figlet_format("                           godbay",font='digital')
+            print(ascii_banners)
             break
         if next == "s":
             driver.find_element_by_xpath("""//*[@id="mp3_play"]""").click()
@@ -241,7 +244,7 @@ try:
              ff = input("please Type (pop): ")
              if ff == "pop":
                  driver.find_element_by_xpath("""//*[@id="playlist_categories"]/div/a[5]""").click()
-                 sd = input("New music Type(new)")
+                 sd = input("New music Type(new): ")
                  if sd == "new":
                      driver.find_element_by_xpath("""//*[@id="featured_playlist"]/div/a[4]""").click()
                      sr = input("Please Type(play): ")
