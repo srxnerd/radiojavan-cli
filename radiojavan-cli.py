@@ -119,6 +119,7 @@ try:
                 os.system("clear")
             except:
                 print("Not Download Please Type(trydl)")
+                time.sleep(3)
         if next == "artist":
             artis = driver.find_element_by_xpath("""//*[@id="navContainer"]/div/a[2]""").click()
             artis = input("Please Entern Type(>): ")
