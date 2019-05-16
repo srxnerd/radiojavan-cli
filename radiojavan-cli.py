@@ -166,7 +166,7 @@ try:
                     dd = driver.find_element_by_xpath("""//*[@id="featured_playlist"]/div/a[14]""").click()
                     sr = input("Please Type(play): ")
                     if sr == "play":
-                        driver.find_element_by_xpath("""//*[@id="featured_playlist"]/div/a[8]""").click()
+                        driver.find_element_by_xpath("""//*[@id="playlist"]/div/div[1]/div/div[2]/a[2]""").click()
                     os.system("clear")
                 if cls == "8":
                     dd = driver.find_element_by_xpath("""//*[@id="featured_playlist"]/div/a[14]""").click()
