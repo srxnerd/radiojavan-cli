@@ -5,25 +5,29 @@ import requests
 import bs4
 import os
 import string
+from colored import fore, back, style
 import sys
+import wget
+import selenium.webdriver.opera
 from selenium.webdriver.common.action_chains import ActionChains
-print("        --------------------------------------------------")
-print("        |                                               ||")
-print("        |              🎷radiojavan-cli                 ||")
-print("        |                 version : 1.1                 ||")
-print("        |                                               ||")
-print("        |             📨telegram:@py_gnu                ||")
-print("        |                                               ||")
-print("        |                                               ||")
-print("        |                                               ||")
-print("        |               Nerd In the Life                ||")
-print("        |_____________🎷🎷🎷🎷🎷🎷🎷🎷🎷🎷_______________")
-time.sleep(5)
+print(fore.LIGHT_BLUE + back.BLACK+"                 |-             🎷radiojavan-cli                 -|"+style.RESET)
+print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
+print(fore.LIGHT_BLUE + back.BLACK+"                 |-                version : 1.1                 -|"+style.RESET)
+print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
+print(fore.LIGHT_BLUE + back.BLACK+"                 *------------------------------------------------*"+style.RESET)
+print(fore.LIGHT_BLUE + back.BLACK+"                 |-              Nerd In the Life                -|"+style.RESET)
+print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
+print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
+print(fore.LIGHT_BLUE + back.BLACK+"                 |-            📨telegram:@py_gnu                -|"+style.RESET)
+print(fore.LIGHT_BLUE + back.BLACK+"                 *_____________🎷🎷🎷🎷🎷🎷🎷🎷🎷🎷______________*"+style.RESET)
+time.sleep(4)
 print("\n\nPlease wait a few moment...")
 link = "https://www.radiojavan.com/playlists/playlist/mp3/854b87855624"
 driver =webdriver.Chrome("/home/sti/down_git/chromedriver")
 driver.get(link)
+driver.minimize_window()
 time.sleep(2)
+playlist = []
 #]driver.find_element_by_xpath("//input[@name='username']").send_keys(userName)
 #driver.find_element_by_xpath("//input[@name='password']").send_keys(password)
 elem = driver.find_element_by_xpath("""//*[@id="navContainer"]/div/a[1]""")
@@ -31,11 +35,25 @@ actions = ActionChains(driver)
 actions.click(elem).perform()
 elem2 = driver.find_element_by_xpath("""//*[@id="playlist"]/div/div[1]/div/div[2]/a[2]""").click()
 po1 = driver.find_element_by_class_name("song").text
+# while True:
+#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-             🎷radiojavan-cli                 -|"+style.RESET)
+#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
+#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-                version : 1.1                 -|"+style.RESET)
+#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
+#     print(fore.LIGHT_BLUE + back.BLACK+"                 *------------------------------------------------*"+style.RESET)
+#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-              Nerd In the Life                -|"+style.RESET)
+#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
+#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
+#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-            📨telegram:@py_gnu                -|"+style.RESET)
+#     print(fore.LIGHT_BLUE + back.BLACK+"                 *_____________🎷🎷🎷🎷🎷🎷🎷🎷🎷🎷______________*"+style.RESET)
 os.system("clear")
 while True:
-    next = input("\n\n                       ======>>>radiojavan-cli<<<=====\n\n1-Next music type(n) \n\n2-exit Type(e) \n\n3-Stop Type(s) \n\n4-Repeat Type(r)  \n\n5-max_window Type(max)  \n\n6-min_window  Type(min)   \n\n7-Downlaod Type(d) \n\n8-Back muisc Type(b) \n\n9-Muisc-Bio Type(bio)    \n\n⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️ \n\n10-list Artis Type(artist)  \n\n11-New muisc  Type(new) \n\n\nPlease Type:  ")
+    os.system("clear")
+    next = input("\n\n                       ======>>>radiojavan-cli<<<=====\n1-Next music type(n) \n2-exit Type(e) \n3-Stop Type(s) \n4-Repeat Type(r)  \n5-max_window Type(max)  \n6-min_window  Type(min)   \n7-Downlaod Type(d) \n8-Retry trying to download Type(trydl) \n9-Back muisc Type(b) \n9-Muisc-Bio Type(bio) \n11-list Artis Type(artist)  \n12-New muisc  Type(new)\n                                                   \n\nPlease Type:  ")
     po1 = driver.find_element_by_class_name("song").text
     po1 = driver.find_element_by_class_name("song").text
+    if next == "clear":
+        os.system("clear")
     if next == "bio":
         tx = driver.find_element_by_class_name("mp3Description").text
         os.system("clear")
@@ -89,7 +107,7 @@ while True:
         ok=link_rj+newstr+mp3
         print(ok)
         time.sleep(1)
-        os.system("wget "+ok)
+        wget.download(ok ,"/home/sti/fun_Project/"+str(po)+".mp3")
         os.system("notify-send Downlaod-done✅")
         os.system("mkdir radiojavan_music")
         os.system("mv *.mp3 radiojavan_music")
@@ -149,7 +167,8 @@ while True:
                 if sr == "play":
                     driver.find_element_by_xpath("""//*[@id="playlist"]/div/div[1]/div/div[2]/a[2]""").click()
                 os.system("clear")
-    if next == "dl":
+    if next == "trydl":
+        try:
             po = driver.find_element_by_class_name("artist").text
             link_rja="https://host2.rj-mw1.com/media/mp3/mp3-256/"
             ss = po
@@ -175,8 +194,36 @@ while True:
             newstr.replace(" ", "")
             ok=link_rja+newstr+mp3
             print(ok)
-            os.system("wget "+ok)
-            time.sleep(5)
+            wget.download(ok ,"/home/sti/fun_Project/"+str(po)+".mp3")
+        except:
+            po = driver.find_element_by_class_name("artist").text
+            link_rja="https://host1.rj-mw1.com/media/mp3/mp3-256/"
+            ss = po
+            ss = ss.replace(',', '')
+            ss = ss.replace('&', '')
+            ss = ss.replace('vs', '')
+            ss = ss.replace('@', '')
+            ss = ss.replace('*', '')
+            ss = ss.replace('[', '').replace(']', '')
+            mp = "-".join(ss.split())
+            songs = po1
+            songs = songs.replace(',', '')
+            songs = songs.replace('[', '').replace(']', '')
+            songs = songs.replace('{', '').replace('}', '')
+            songs = songs.replace('*', '')
+            songs = songs.replace('&', '')
+            songs = songs.replace("/" , "")
+            songs = songs.replace('vs', '')
+            songs = songs.replace('@', '')
+            md = "-".join(songs.split())
+            mp3=".mp3"
+            newstr = "-".join((mp, md))
+            newstr.replace(" ", "")
+            ok=link_rja+newstr+mp3
+            print(ok)
+            wget.download(ok ,"/home/sti/fun_Project/"+str(po)+".mp3")
+            os.system("notify-send Downlaod-done✅")
+            time.sleep(3)
     if next == "new":
          os.system("clear")
          artis = driver.find_element_by_xpath("""//*[@id="navContainer"]/div/a[2]""").click()
