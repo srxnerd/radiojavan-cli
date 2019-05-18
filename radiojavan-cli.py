@@ -36,36 +36,40 @@ elem = driver.find_element_by_xpath("""//*[@id="navContainer"]/div/a[1]""")
 actions = ActionChains(driver)
 actions.click(elem).perform()
 elem2 = driver.find_element_by_xpath("""//*[@id="playlist"]/div/div[1]/div/div[2]/a[2]""").click()
+po = driver.find_element_by_class_name("artist").text
 po1 = driver.find_element_by_class_name("song").text
-# while True:
-#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-             🎷radiojavan-cli                 -|"+style.RESET)
-#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
-#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-                version : 1.1                 -|"+style.RESET)
-#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
-#     print(fore.LIGHT_BLUE + back.BLACK+"                 *------------------------------------------------*"+style.RESET)
-#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-              Nerd In the Life                -|"+style.RESET)
-#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
-#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-                                              -|"+style.RESET)
-#     print(fore.LIGHT_BLUE + back.BLACK+"                 |-            📨telegram:@py_gnu                -|"+style.RESET)
-#     print(fore.LIGHT_BLUE + back.BLACK+"                 *_____________🎷🎷🎷🎷🎷🎷🎷🎷🎷🎷______________*"+style.RESET)
+
 os.system("clear")
 try:
     while True:
         os.system("clear")
-        next = input("\n\n                       ======>>>radiojavan-cli<<<=====\n1-)Next music Type(n) \n2-)Back muisc Type(b)  \n3-)Stop Type(s) \n4-)Repeat Type(r)  \n5-)max_window Type(max)  \n6-)min_window  Type(min)   \n6-)Downlaod Type(d) \n7-)Retry trying to download Type(trydl) \n8-)exit Type(e)\n9-)Muisc-Bio Type(bio) \n11-)list Artis Type(artist)  \n12-)New muisc  Type(new)\n  \n\n>>> Please Type: ")
-        po1 = driver.find_element_by_class_name("song").text
-        po1 = driver.find_element_by_class_name("song").text
+        next = input("\n\n                       ======>>>radiojavan-cli<<<=====\n0-)login in radiojavan Type(login)            \n1-)Next music Type(n) \n2-)Back muisc Type(b)  \n3-)Stop Type(s) \n4-)Repeat Type(r)  \n5-)max_window Type(max)  \n6-)min_window  Type(min)   \n6-)Downlaod Type(d) \n7-)Retry trying to download Type(trydl) \n8-)exit Type(e)\n9-)Muisc-Bio Type(bio) \n11-)list Artis Type(artist)  \n12-)New muisc  Type(new)   \n  \n\n>>> Please Type: ")
+        # art = driver.find_element_by_xpath("""//*[@id="mp3"]/div/div[3]/div[1]/div/div[1]/div[1]/div/span[1]""").text
+        # print(art)
+        if next == "login":
+            try:
+                driver.find_element_by_xpath("""//*[@id="topBarMenu"]/button""").click()
+                userName = input("Please Enter    email: ")
+                password = input("Please Enter password: ")
+                driver.find_element_by_xpath("""//*[@id="login_email"]""").send_keys(userName)
+                driver.find_element_by_xpath("""//*[@id="login_password"]""").send_keys(password)
+                login_bot = driver.find_element_by_xpath("""//*[@id="login_button"]""").click()
+            except:
+                print("Please sign up in radiojavan")
+        if next == "like":
+            try:
+                driver.find_element_by_xpath("""//*[@id="mp3_likes"]/span""").click()
+            except:
+                print("Please login in radiojavan")
         if next == "clear":
             os.system("clear")
         if next == "bio":
-            tx = driver.find_element_by_class_name("mp3Description").text
-            os.system("clear")
-            print("==========>Bio muisc<=============\n",tx)
+            time.sleep(2)
         if next == "n":
             driver.find_element_by_xpath("""//*[@id="mp3_next"]""").click()
             os.system("clear")
         if next == "e":
-            ascii_banners = pyfiglet.figlet_format("                           godbay",font='digital')
+            ascii_banners = pyfiglet.figlet_format("                           goodbay",font='digital')
             print(ascii_banners)
             break
         if next == "s":
