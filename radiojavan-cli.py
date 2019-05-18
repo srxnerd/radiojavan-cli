@@ -112,7 +112,7 @@ try:
                 ok=link_rj+newstr+mp3
                 print(ok)
                 time.sleep(1)
-                wget.download(ok ,"/home/sti/fun_Project/"+str(po)+".mp3")
+                wget.download(ok ,"/home/sti/radiojavan_music/"+str(po)+".mp3")
                 os.system("notify-send Downlaod-done✅")
                 os.system("mkdir radiojavan_music")
                 os.system("mv *.mp3 radiojavan_music")
