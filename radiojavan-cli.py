@@ -112,7 +112,7 @@ try:
                 ok=link_rj+newstr+mp3
                 print(ok)
                 time.sleep(1)
-                wget.download(ok ,"radiojavan_music/"+str(po)+str(po1)+".mp3")
+                wget.download(ok ,"radiojavan_music/"+str(po)+" "+str(po1)+".mp3")
                 os.system("notify-send Downlaod-done✅")
                 os.system("mkdir radiojavan_music")
                 os.system("mv *.mp3 radiojavan_music")
@@ -202,7 +202,7 @@ try:
                 newstr.replace(" ", "")
                 ok=link_rja+newstr+mp3
                 print(ok)
-                wget.download(ok ,"radiojavan_music/"+str(po)+str(po1)+".mp3")
+                wget.download(ok ,"radiojavan_music/"+str(po)+" "+str(po1)+".mp3")
                 time.sleep(3)
                 os.system("mkdir radiojavan_music")
                 os.system("mv *.mp3 radiojavan_music")
@@ -233,7 +233,7 @@ try:
                 newstr.replace(" ", "")
                 ok=link_rja+newstr+mp3
                 print(ok)
-                wget.download(ok ,"radiojavan_music/"+str(po)+str(po1)+".mp3")
+                wget.download(ok ,"radiojavan_music/"+str(po)+" "+str(po1)+".mp3")
                 os.system("notify-send Downlaod-done✅")
                 time.sleep(3)
                 os.system("mkdir radiojavan_music")
