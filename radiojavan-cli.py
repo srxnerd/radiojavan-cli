@@ -202,7 +202,7 @@ try:
                 newstr.replace(" ", "")
                 ok=link_rja+newstr+mp3
                 print(ok)
-                wget.download(ok ,"/home/sti/fun_Project/"+str(po)+".mp3")
+                wget.download(ok ,"/home/sti/radiojavan_music/"+str(po)+".mp3")
                 time.sleep(3)
                 os.system("mkdir radiojavan_music")
                 os.system("mv *.mp3 radiojavan_music")
