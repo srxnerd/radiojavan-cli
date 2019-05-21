@@ -10,6 +10,7 @@ import sys
 import wget
 import selenium.webdriver.opera
 import pyfiglet
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 ascii_banner = pyfiglet.figlet_format("                           Radiojavan-cli",font='digital')
 print(ascii_banner)
@@ -26,7 +27,9 @@ print(fore.LIGHT_BLUE + back.BLACK+"                 *_____________🎷🎷🎷�
 time.sleep(4)
 print("\n\nPlease wait a few moment...")
 link = "https://www.radiojavan.com/playlists/playlist/mp3/854b87855624"
+
 driver =webdriver.Chrome("/home/sti/down_git/chromedriver")
+driver.set_window_size(480, 320)
 driver.get(link)
 time.sleep(2)
 playlist = []
@@ -90,6 +93,7 @@ try:
         if next == "d":
             try:
                 po = driver.find_element_by_class_name("artist").text
+                po1 = driver.find_element_by_class_name("song").text
                 link_rj="https://host2.rj-mw1.com/media/mp3/mp3-256/"
                 ar = po
                 ar = ar.replace(',', '')
@@ -182,6 +186,7 @@ try:
         if next == "trydl":
             try:
                 po = driver.find_element_by_class_name("artist").text
+                po1 = driver.find_element_by_class_name("song").text
                 link_rja="https://host2.rj-mw1.com/media/mp3/mp3-256/"
                 ss = po
                 ss = ss.replace(',', '')
@@ -206,6 +211,7 @@ try:
                 newstr.replace(" ", "")
                 ok=link_rja+newstr+mp3
                 print(ok)
+                time.sleep(2)
                 wget.download(ok ,"radiojavan_music/"+str(po)+" "+str(po1)+".mp3")
                 time.sleep(3)
                 os.system("mkdir radiojavan_music")
@@ -213,6 +219,7 @@ try:
                 os.system("clear")
             except:
                 po = driver.find_element_by_class_name("artist").text
+                po1 = driver.find_element_by_class_name("song").text
                 link_rja="https://host1.rj-mw1.com/media/mp3/mp3-256/"
                 ss = po
                 ss = ss.replace(',', '')
